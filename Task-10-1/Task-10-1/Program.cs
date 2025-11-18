@@ -10,9 +10,10 @@ namespace Task_10_1
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("Введите число");
             int k = int.Parse(Console.ReadLine());
 
-            for (int i = 1; i <= 9; i++)
+            for (int i = 2; i <= 9; i++)
             {
                 Console.WriteLine($"{k} * {i} = {k * i}");
             }
