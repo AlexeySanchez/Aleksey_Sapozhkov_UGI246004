@@ -10,7 +10,7 @@ namespace DishTests
             Dish dish = CreateTestDish();
 
             Assert.That(dish.Name, Is.EqualTo("Плов"));
-            Assert.That(dish.KitchenType, Is.EqualTo("Среднеазиатская"));
+            Assert.That(dish.Kitchen, Is.EqualTo(KitchenType.CentralAsian));
             Assert.That(dish.Description, Is.EqualTo("Рис с мясом"));
         }
 
@@ -27,13 +27,13 @@ namespace DishTests
             Assert.That(info.Length, Is.EqualTo(2));
             Assert.That(info[0], Is.EqualTo("Плов"));
             Assert.That(info[1], Is.EqualTo(
-                "Кухня: Среднеазиатская. Описание: Рис с мясом. Цена: 350. Наличие: да. Время приготовления: 25 мин."
+                "Кухня: CentralAsian. Описание: Рис с мясом. Цена: 350. Наличие: да. Время приготовления: 25 мин."
             ));
         }
 
         private Dish CreateTestDish()
         {
-            return new Dish("Плов", "Среднеазиатская", "Рис с мясом");
+            return new Dish("Плов", KitchenType.CentralAsian, "Рис с мясом");
         }
     }
 }

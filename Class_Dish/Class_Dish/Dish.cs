@@ -11,16 +11,16 @@ namespace Class_Dish
         public readonly string Name;
 
         // свойства
-        public string KitchenType { get; set; }
+        public KitchenType Kitchen { get; set; }
         public string Description { get; set; }
         public decimal Price { get; set; }
         public bool IsAvailable { get; set; }
         public int CookingTime { get; set; }
 
-        public Dish(string name, string kitchenType, string description)
+        public Dish(string name, KitchenType kitchen, string description)
         {
             Name = name;
-            KitchenType = kitchenType;
+            Kitchen = kitchen;
             Description = description;
         }
 
@@ -38,7 +38,7 @@ namespace Class_Dish
             else
                 availableText = "нет";
 
-            info[1] = $"Кухня: {KitchenType}. Описание: {Description}. Цена: {Price}. " +
+            info[1] = $"Кухня: {Kitchen}. Описание: {Description}. Цена: {Price}. " +
                       $"Наличие: {availableText}. Время приготовления: {CookingTime} мин.";
 
             return info;
