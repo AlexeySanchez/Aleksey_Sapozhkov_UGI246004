@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -48,6 +48,79 @@ namespace Class_Dish_App
             {
                 Console.WriteLine(line);
             }
+
+            Console.WriteLine();
+            Console.WriteLine("Блюда в меню:");
+            var menu = new Menu(DateTime.Today, new Dish[] { snack, mainCourse });
+            foreach (var dish in menu)
+            {
+                Console.WriteLine(dish.Name);
+            }
+
+            var dishes = new List<Dish>
+            {
+                new MainCourse(
+                    "Плов",
+                    KitchenType.CentralAsian,
+                    "Рис с мясом",
+                    MainProductType.Meat,
+                    "овощи"
+                ),
+
+                new Snack(
+                    "Жульен",
+                    KitchenType.French,
+                    "Горячая закуска с грибами",
+                    SnackType.Hot
+                ),
+
+                new Dish(
+                    "Борщ",
+                    KitchenType.Russian,
+                    "Суп со свеклой"
+                ),
+
+                new Dish(
+                    "Пельмени",
+                    KitchenType.Russian,
+                    "Блюдо из теста и мяса"
+                ),
+
+                new MainCourse(
+                    "Паста",
+                    KitchenType.Italian,
+                    "Паста с соусом",
+                    MainProductType.Vegetarian,
+                    "сыр"
+                )
+            };
+
+            Console.WriteLine("Блюда до сортировки:");
+            foreach (Dish dish in dishes)
+                {
+                    Console.WriteLine($"{dish.KitchenName} - {dish.Name}");
+                }
+
+
+            dishes.Sort();
+
+            Console.WriteLine();
+            Console.WriteLine("Блюда после сортировки:");
+            foreach (Dish dish in dishes)
+            {
+                Console.WriteLine($"{dish.KitchenName} - {dish.Name}");
+            }
+
+            Console.WriteLine();
+            Console.WriteLine("Проверка Menu через foreach:");
+
+            Menu menu_2 = new Menu(DateTime.Today, dishes);
+
+            foreach (Dish dish in menu_2)
+            {
+                Console.WriteLine($"В меню есть блюдо: {dish.Name}");
+            }
+
 
             Console.ReadKey();
         }

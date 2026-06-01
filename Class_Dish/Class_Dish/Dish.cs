@@ -1,6 +1,8 @@
+using System;
+
 namespace Class_Dish
 {
-    public class Dish
+    public class Dish : IComparable<Dish>
     {
         public readonly string Name;
 
@@ -16,6 +18,19 @@ namespace Class_Dish
             Name = name;
             Kitchen = kitchen;
             Description = description;
+        }
+
+        //Сортировка блюд: сначала по кухне, затем по названию
+        public int CompareTo(Dish other)
+        {
+            if (other == null)
+                return 1;
+
+            int kitchenComparison = Kitchen.CompareTo(other.Kitchen);
+            if (kitchenComparison != 0)
+                return kitchenComparison;
+
+            return string.Compare(Name, other.Name, StringComparison.CurrentCulture);
         }
 
         //Метод virtual можно переопределять в производных классах через override
@@ -60,5 +75,7 @@ namespace Class_Dish
 
             return "неизвестная";
         }
+
+        public string KitchenName => GetKitchen();
     }
 }
