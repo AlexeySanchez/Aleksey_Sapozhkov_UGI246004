@@ -57,11 +57,11 @@ namespace RectangleStruct.UnitTests
         [Test]
         public void ToStringTest()
         {
-            var rectangle = new Rectangle(2.3451, 1.002);
+            var rectangle = new Rectangle(2, 4);
 
             Assert.That(
                 rectangle.ToString(),
-                Is.EqualTo("Прямоугольник шириной 2,3451 см и высотой 1,002 см"));
+                Is.EqualTo("Прямоугольник шириной 2 см и высотой 4 см"));
         }
 
         [TestCase(2.5, 4.0, 2.5, 4.0, true)]

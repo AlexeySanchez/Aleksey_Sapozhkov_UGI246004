@@ -1,5 +1,4 @@
 using System;
-using System.Globalization;
 
 namespace RectangleStruct
 {
@@ -44,16 +43,8 @@ namespace RectangleStruct
             Height = height;
         }
 
-        public override string ToString()
-        {
-            var culture = CultureInfo.GetCultureInfo("ru-RU");
-
-            return string.Format(
-                culture,
-                "Прямоугольник шириной {0} см и высотой {1} см",
-                Width,
-                Height);
-        }
+        public override string ToString() =>
+            $"Прямоугольник шириной {Width} см и высотой {Height} см";
 
         public bool Equals(Rectangle other)
         {
